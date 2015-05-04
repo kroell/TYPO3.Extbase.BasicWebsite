@@ -1,0 +1,14 @@
+backend_layout {
+	colCount = 1
+	rowCount = 1
+	rows {
+		1 {
+			columns {
+				1 {
+					name = LLL:EXT:ot_website/Resources/Private/Language/locallang_db.xlf:backendlayout.content
+					colPos = 0
+				}
+			}
+		}
+	}
+}

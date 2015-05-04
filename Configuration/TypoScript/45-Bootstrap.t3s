@@ -1,0 +1,90 @@
+/**
+ * Replace of the standard wraps with bootstrap css
+ */
+// replace rel attribute with data-fancybox-group
+tt_content.image.20.1.imageLinkWrap.linkParams.ATagParams.dataWrap = class="{$styles.content.imgtext.linkWrap.lightboxCssClass}" data-fancybox-group="{$styles.content.imgtext.linkWrap.lightboxRelAttribute}"
+
+// Inner <div> tag
+tt_content.stdWrap.innerWrap >
+tt_content.stdWrap.innerWrap.cObject = COA
+tt_content.stdWrap.innerWrap.cObject {
+	10 = TEXT
+	10 {
+		value = <div class="{field:bootstrap_css_inner}">
+		insertData = 1
+		if.isTrue.field = bootstrap_css_inner
+	}
+	// todo linkToTop
+
+	50 = TEXT
+	50.value = |
+
+	100 = TEXT
+	100 {
+		value = </div>
+		if.isTrue.field = bootstrap_css_inner
+	}
+}
+
+// Outer <div> tag
+tt_content.stdWrap.innerWrap2 >
+tt_content.stdWrap.innerWrap2.cObject = TEXT
+tt_content.stdWrap.innerWrap2.cObject {
+	value = <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">|</div>
+	# not for CType div
+	if {
+		isInList.field = CType
+		value = div
+		negate = 1
+	}
+}
+tt_content.stdWrap.innerWrap2.override {
+	cObject = COA
+	cObject {
+		10 = TEXT
+		10 {
+			stdWrap {
+				cObject = COA
+				cObject {
+					10 = TEXT
+					10 {
+						field = bootstrap_col_xs
+						if.isTrue.field = bootstrap_col_xs
+						noTrimWrap = | col-xs-| |
+					}
+					20 = TEXT
+					20 {
+						field = bootstrap_col_sm
+						if.isTrue.field = bootstrap_col_sm
+						noTrimWrap = | col-sm-| |
+					}
+					30 = TEXT
+					30 {
+						field = bootstrap_col_md
+						if.isTrue.field = bootstrap_col_md
+						noTrimWrap = | col-md-| |
+					}
+					40 = TEXT
+					40 {
+						field = bootstrap_col_lg
+						if.isTrue.field = bootstrap_col_lg
+						noTrimWrap = | col-lg-| |
+					}
+					50 = TEXT
+					50 {
+						field = bootstrap_css
+						required = 1
+					}
+				}
+				trim = 1
+			}
+			required = 1
+			wrap = <div class="|">
+			append = TEXT
+			append.value = |</div>
+		}
+	}
+}
+
+tt_content.image.20.1.params = class="img-responsive img-rounded"
+tt_content.div.wrap = </div><!-- row end --><div class="row"><div class="col-xs-12 col-lg-12"><div class="divider">|</div></div><!-- New row -->
