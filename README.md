@@ -18,6 +18,7 @@ All dependencies (Bootstrap, VHS ViewHelper, jQuery, Fancyox, etc.) will be inst
 # Clone Repository
 cd typo3conf/ext/
 git clone TYPO3.Extbase.BasicWebsite ot_website
+
 # Install dependencies
 composer update --dry-run
 composer update
