@@ -26,23 +26,8 @@
     "fluidtypo3/vhs": "*",
     "twbs/bootstrap": "^3.3",
     "fortawesome/font-awesome": "*",
-    "kenwheeler/slick": "1.5.5"
+    "soerenkroell/composer-slick": "@dev"
   },
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "kenwheeler/slick",
-        "version": "1.5.5",
-        "source": {
-          "url": "https://github.com/kenwheeler/slick.git",
-          "type": "git",
-          "reference": "1.5.5"
-        }
-      }
-    }
-  ],
   "suggest": {
-
   }
 }
