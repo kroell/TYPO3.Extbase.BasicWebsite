@@ -22,12 +22,10 @@
   "support": {
     "source": "https://github.com/kroell/TYPO3.Extbase.BasicWebsite"
   },
-  "require": {
+  "require-dev": {
     "fluidtypo3/vhs": "*",
     "twbs/bootstrap": "^3.3",
     "fortawesome/font-awesome": "*",
     "soerenkroell/composer-slick": "1.5.5"
-  },
-  "suggest": {
   }
 }
