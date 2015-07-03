@@ -25,6 +25,7 @@
   "require": {
     "fluidtypo3/vhs": "*",
     "twbs/bootstrap": "^3.3",
+    "fortawesome/font-awesome": "*",
     "framework/jquery": "1.11.3",
     "framework/html5shiv": "@dev",
     "kenwheeler/slick": "1.5.5",
