@@ -15,8 +15,10 @@ Additional Backend-Layouts are added with the new BackendLayoutDataProvider.
 ### Installation
 All dependencies (Bootstrap, VHS ViewHelper, jQuery, Fancyox, etc.) will be installed by composer.  
 ```
+# Clone Repository
 cd typo3conf/ext/
 git clone TYPO3.Extbase.BasicWebsite ot_website
+# Install dependencies
 composer update --dry-run
 composer update
 ```
