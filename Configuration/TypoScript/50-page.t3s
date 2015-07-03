@@ -1,22 +1,24 @@
 page = PAGE
 page {
 	includeCSS {
-		file01 = typo3conf/ext/ot_website/Resources/Public/Bootstrap3/css/bootstrap.min.css
-		file02 = typo3conf/ext/ot_website/Resources/Public/Fancybox/jquery.fancybox.css
+		file01 = typo3conf/ext/ot_website/vendor/twbs/bootstrap/dist/css/bootstrap.min.css
+		file02 = typo3conf/ext/ot_website/Resources/Public/Vendor/Fancybox/jquery.fancybox.css
+		file03 = typo3conf/ext/ot_website/vendor/kenwheeler/slick/slick/slick.css
+		file03 = typo3conf/ext/ot_website/vendor/kenwheeler/slick/slick/slick-theme.css
 
-		file99 = typo3conf/ext/ot_website/Resources/Public/Css/MyStyles.css
+		file99 = typo3conf/ext/ot_website/Resources/Public/Css/Styles.css
 	}
 	includeJS {
-		jquery = //ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
-		jquery.external = 1
+		jquery = typo3conf/ext/ot_website/vendor/framework/jquery/jquery-1.11.3.min.js
 	}
 
 	includeJSFooterlibs {
-		file01 = typo3conf/ext/ot_website/Resources/Public/Bootstrap3/js/bootstrap.min.js
-		file02 = typo3conf/ext/ot_website/Resources/Public/Fancybox/jquery.fancybox.pack.js
+		file01 = typo3conf/ext/ot_website/vendor/twbs/bootstrap/dist/js/bootstrap.min.js
+		file02 = typo3conf/ext/ot_website/Resources/Public/Vendor/Fancybox/jquery.fancybox.pack.js
+		file03 = typo3conf/ext/ot_website/vendor/kenwheeler/slick/slick/slick.min.js
 	}
 	includeJSFooter {
-		file01 = typo3conf/ext/ot_website/Resources/Public/Js/MyScript.js
+		file01 = typo3conf/ext/ot_website/Resources/Public/Js/Script.js
 	}
 
 	meta {
@@ -24,14 +26,36 @@ page {
 			data = TSFE:page|description
 		}
 		robots = noindex, nofollow
+        #robots = index, follow
 		viewport = width=device-width, initial-scale=1
+        keywords =
+        language = de
+        rating = General
+        revisit = 30
+        author = Soeren Kroell
+        copyright = Soeren Kroell
+        email = hallo@soerenkroell.com
 	}
+
+    meta {
+        description = TCI Rechtsanwälte
+        keywords = TCI, Rechtsanwälte, IT-Recht, Vertragsrecht, Medienrecht, Mainz, München, Berlin
+        language = de
+        rating = General
+        revisit = 30
+        author = Soeren Kroell
+        copyright = Soeren Kroell
+        robots = index, follow
+        email = kotakt@tcilaw.de
+        #google-site-verification = LSTOTWUMVe3Jup2PVJ2C7AOi822xbWbbjYR_llnF-4k
+    }
+
 	headerData {
 		# HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
 		10 = TEXT
 		10.value (
 <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="typo3conf/ext/ot_website/vendor/framework/html5shiv/dist/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 		)
@@ -90,3 +114,5 @@ page {
 	)
 
 }
+
+

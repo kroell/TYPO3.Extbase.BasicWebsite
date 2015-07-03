@@ -1,4 +1,16 @@
+# Allgemeine Einstellungen
+# -----------------------------------------------------------------------------
+
 config {
+
+    // UTF-8 und XHTML 1.1 Strict einschalten
+    doctype = <!DOCTYPE html>
+    xmlprologue = none
+    xhtml_cleaning = all
+    htmlTag_setParams = xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    renderCharset = utf-8
+    metaCharset < renderCharset
+
 	# locallang.xlf
 	language = de
 	# PHP: Zeit/Währung/...
@@ -10,10 +22,78 @@ config {
 	# GET-Parameter mit Validierung
 	linkVars = L(1-2)
 
+    // Cache-Einstellungen
 	sendCacheHeaders = 1
 	cache_period = 86400
+    cache = 1
+    no_cache = 0
 
+    // Bilder werden zuerst mit dem OrgNamen geparsed und danach mit dem Hashcode
+    meaningfulTempFilePrefix = 100
 	disablePrefixComment = 1
-
 	disableImgBorderAttr = 1
+
+	// JS und CSS minify
+    concatenateJs = 1
+    concatenateCss = 1
+    compressJs = 1
+    compressCss = 1
+    minifyJS = 1
+    minifyCSS = 1
+
+    xhtml_cleaning = all
+
+    // Den Seitentitel vor dem Websitenamen nennen
+    pageTitleFirst = 1
+
+    // E-Mail-Adresse fuer spam Harvester verschleiern
+    spamProtectEmailAddresses = ascii
+    spamProtectEmailAddresses_atSubst = <span>&#064;</span>
+
+    // Speaking URLs
+    simulateStaticDocuments = 0
+    tx_realurl_enable = 0
+    prefixLocalAnchors = all
+
+
+    headerComment (
+  ***********************************************
+
+        TYPO3 made with
+
+         ***     ***
+        *    * *    *
+        *     *     *
+         *         *
+          *       *
+            *   *
+              *
+
+        by
+        Soeren Kroell #TYPO3Development
+
+        hallo@soerenkroell.com
+        madebysoeren.com
+
+  ***********************************************
+    )
+}
+
+
+# Reihenfolge von Doctype und XML-Prolog beim Internet Explorer tauschen (wegen Bug)
+# ------------------------------------------------------------------------------
+[browser = msie]
+    config.doctypeSwitch = 1
+[else]
+    config.doctypeSwitch = 0
+[end]
+
+
+
+# localize date format, used within the fluid templates
+# ------------------------------------------------------------------------------
+lib.ll_date = TEXT
+lib.ll_date {
+    current = 1
+    strftime = %d. %b %Y
 }

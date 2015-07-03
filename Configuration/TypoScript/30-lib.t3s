@@ -59,6 +59,7 @@ lib {
 			}
 		}
 	}
+    # Sidebar
 	sidebarNav = HMENU
 	sidebarNav {
 		entryLevel = 1
@@ -76,4 +77,64 @@ lib {
 			}
 		}
 	}
+    # Breadcrumb
+    breadcrumb = HMENU
+    breadcrumb {
+        special = rootline
+        1 = TMENU
+        1.wrap = <ol class="breadcrumb">|</ol>
+        1.noBlur = 1
+        1.NO.linkWrap = |
+        1.NO.allStdWrap.dataWrap = <li id="{field:title}">|</li>
+        1.NO {
+            ATagTitle.field = nav_title // title
+        }
+        1.NO {
+            1 = COA
+            1.10 = TEXT
+            1.10 {
+                field = nav_title // title
+            }
+            #1.stdWrap.replacement.10 {
+            #  search.char = 13
+            #  replace = <br/>
+            #}
+            1.stdWrap.replacement.20 {
+                search = '
+                replace = &shy;
+            }
+            stdWrap.field >
+            stdWrap.cObject = TEXT
+            stdWrap.cObject < .1
+        }
+        1.CUR = 1
+        #1.CUR < .1.NO
+        1.CUR {
+            doNotLinkIt = 1
+            stdWrap.wrap = |
+            linkWrap = <li class="active">|</li>
+        }
+    }
+    # KE Searchbox
+    searchbox = COA_INT
+    searchbox {
+        10 < plugin.tx_kesearch_pi1
+
+        # result page
+        10.resultPage = 9
+
+        # static or ajax mode
+        10.renderMethod = static
+
+        # HTML template and CSS file
+        10.templateFile = EXT:ke_search_hooks/res/ke_search_custom_template_pi1.tpl
+        10.cssFile = EXT:ke_search_hooks/res/ke_search_custom_pi1.css
+
+        # Content element (search box plugin) from which additional
+        # configuration should be loaded (UID of content element).
+        # Important: If you have two search boxes on your result page
+        # (eg. in the top and in the left area), you should set this value!
+        # 10.loadFlexformsFromOtherCE = 123456
+    }
 }
+

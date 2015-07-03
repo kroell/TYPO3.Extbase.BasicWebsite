@@ -13,7 +13,7 @@ plugin.tx_otwebsite {
 
 // Oben ist für den Konstanteneditor, unten die gespeicherten Änderungen
 
-plugin.tx_otwebsite.settings.companyName = Oliver Thiele
+plugin.tx_otwebsite.settings.companyName = Soeren Kroell
 
 styles.content.imgtext.maxWInText = 0
 styles.content.imgtext.linkWrap.width = 800
