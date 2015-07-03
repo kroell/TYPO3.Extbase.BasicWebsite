@@ -1,6 +1,6 @@
 # TYPO3.Extbase.BasicWebsite (ot_website)
 
-A TYPO3 website EXT inspired by Oliver Thiele.  
+A TYPO3 website EXT inspired by (Oliver Thiele)[oliver-thiele.de].  
 
 Original Description by Oliver Thiele:  
 ```
