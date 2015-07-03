@@ -25,7 +25,8 @@
   "require": {
     "fluidtypo3/vhs": "*",
     "twbs/bootstrap": "^3.3",
-    "fortawesome/font-awesome": "*"
+    "fortawesome/font-awesome": "*",
+    "soerenkroell/composer-slick": "1.5.5"
   },
   "suggest": {
   }
