@@ -15,7 +15,7 @@
     {
       "name": "Soeren Kroell",
       "email": "hallo@soerenkroell.com",
-      "homepage": "http://sota-studio.de",
+      "homepage": "http://www.soerenkroell.com",
       "role": "Developer"
     }
   ],
@@ -80,6 +80,5 @@
       }
     }
   ],
-  "autoload": {
-  }
+
 }
