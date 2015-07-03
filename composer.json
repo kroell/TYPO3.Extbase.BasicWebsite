@@ -1,10 +1,10 @@
 {
-  "name": "soerenkroell/basic-website",
+  "name": "soerenkroell/typo3-basic-website",
   "type": "typo3-cms-extension",
   "license": "MIT",
   "version": "0.2.0",
   "keywords": ["basicwebsite", "bootstrap"],
-  "description": "Provides a basic website setup with Bootstrap3.",
+  "description": "Provides a TYPO3 basic website setup with Bootstrap3.",
   "authors": [
     {
       "name": "Oliver Thiele",
