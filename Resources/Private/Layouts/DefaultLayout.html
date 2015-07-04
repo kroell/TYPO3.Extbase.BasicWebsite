@@ -36,6 +36,7 @@
 		</div>
 	</div>
 </div>
+
 <div class="container">
 	<div class="row">
 		<f:render partial="BrowseHappyForIE6" section="Content"/>
@@ -43,14 +44,20 @@
 	<f:render section="Content" />
 </div>
 
+<f:comment>
+    <![CDATA[
+    <!--
 <div class="container">
-	<hr>
-	<footer class="row">
-		<div class="col-md-6">
-			<p>© {settings.companyName} 2011-{currentYear}</p>
-			<p>
-				<f:translate extensionName="ot_website" id="page_created" arguments="{0: '{f:format.date(date: \'@{data.crdate}\', format: \'{f:translate(id: \\\'formatDate\\\', extensionName: \\\'ot_website\\\')}\')}'}" />
-			</p>
-		</div>
-	</footer>
+    <hr>
+    <footer class="row">
+        <div class="col-md-6">
+            <p>© {settings.companyName} 2011-{currentYear}</p>
+            <p>
+                <f:translate extensionName="ot_website" id="page_created" arguments="{0: '{f:format.date(date: \'@{data.crdate}\', format: \'{f:translate(id: \\\'formatDate\\\', extensionName: \\\'ot_website\\\')}\')}'}" />
+            </p>
+        </div>
+    </footer>
 </div>
+-->
+    ]]>
+</f:comment>

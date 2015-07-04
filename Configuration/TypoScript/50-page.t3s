@@ -5,6 +5,8 @@ page {
 		file02 = typo3conf/ext/ot_website/Resources/Public/Vendor/Fancybox/jquery.fancybox.css
 		file03 = Packages/Libraries/soerenkroell/composer-slick/slick/slick.css
 		file03 = Packages/Libraries/soerenkroell/composer-slick/slick/slick-theme.css
+		file04 = Packages/Libraries/fortawesome/font-awesome/css/font-awesome.min.css
+		file05 = typo3conf/ext/ot_website/Resources/Public/Css/Animations.min.css
 
 		file99 = typo3conf/ext/ot_website/Resources/Public/Css/Styles.css
 	}
@@ -101,6 +103,5 @@ page {
 <script>window.jQuery || document.write('<script src="typo3conf/ext/ot_website/Resources/Public/Js/jquery-1.11.1.min.js"><\/script>')</script>
 	)
 
+	bodyTagAdd = class="enable-animations"
 }
-
-

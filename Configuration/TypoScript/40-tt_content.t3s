@@ -26,3 +26,23 @@ aside_content.image {
 		}
 	}
 }
+
+
+# Eigene Rahmen
+# ------------------------------------------------------------------------------
+tt_content.stdWrap.innerWrap.cObject = CASE
+tt_content.stdWrap.innerWrap.cObject {
+	key.field = section_frame
+	100 = TEXT
+	100.value = <div class="t-two-cols">|</div>
+	101 = TEXT
+	101.value = <div class="donthyphenate">|</div>
+	102 = TEXT
+	102.value = <div data-animation="fadeIn">|</div>
+	103 = TEXT
+	103.value = <div data-animation="bounceIn">|</div>
+	104 = TEXT
+	104.value = <div data-animation="fadeInLeft">|</div>
+	105 = TEXT
+	105.value = <div data-animation="fadeInRight">|</div>
+}

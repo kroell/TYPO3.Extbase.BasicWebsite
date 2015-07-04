@@ -1,7 +1,7 @@
 lib {
 	navigation = COA
 	navigation {
-		stdWrap.wrap = <ul class="nav navbar-nav">|</ul>
+		stdWrap.wrap = <ul class="nav navbar-nav main-nav">|</ul>
 		5 = TEXT
 		5 {
 			value = <li>
@@ -17,15 +17,15 @@ lib {
 			}
 		}
 
-		10 = TEXT
-		10 {
-			value = Home
-			data =  levelfield: 0, nav_title // leveltitle: 0
-			stdWrap {
-				typolink.parameter = 1
-				wrap = |</li>
-			}
-		}
+#		10 = TEXT
+#		10 {
+#			value = Home
+#			data =  levelfield: 0, nav_title // leveltitle: 0
+#			stdWrap {
+#				typolink.parameter = 1
+#				wrap = |</li>
+#			}
+#		}
 
 		20 = HMENU
 		20 {
