@@ -75,6 +75,12 @@ page {
 
 		settings {
 			companyName = {$plugin.tx_otwebsite.settings.companyName}
+
+			socialLinks {
+				facebook = {$plugin.tx_otwebsite.settings.socialLinks.facebook}
+				twitter = {$plugin.tx_otwebsite.settings.socialLinks.twitter}
+				email = {$plugin.tx_otwebsite.settings.socialLinks.email}
+			}
 		}
 
 		// KEINE *_INT Objekte!!!
@@ -104,4 +110,24 @@ page {
 	)
 
 	bodyTagAdd = class="enable-animations"
+}
+
+
+ajaxCall = PAGE
+ajaxCall {
+	typeNum = 200
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		pluginName = OtWebsite
+		extensionName = OtWebsite
+		vendorName = OliverThiele
+	}
+	config {
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type:application/json
+		xhtml_cleaning = 0
+		admPanel = 0
+		no_cache = 1
+	}
 }

@@ -1,3 +1,7 @@
-settings {
-	companyName = Meier & Söhne KG
-}
+#settings {
+#	companyName = Meier & Söhne KG
+#
+#	socialLinks {
+#		facebook = www.facebook.com
+#	}
+#}

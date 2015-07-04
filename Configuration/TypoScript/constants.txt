@@ -1,12 +1,21 @@
 /**
  * constants.txt
  *
- * @author Oliver Thiele
+ * @author Oliver Thiele, Soeren Kroell
  */
 plugin.tx_otwebsite {
 	settings {
 		# cat=plugin.tx_otwebsite/others; type=string; label=Company Name:Company name for Navbar and Footer
 		companyName =
+
+		socialLinks {
+			# cat=plugin.tx_otwebsite/others; type=string; label=Facebook:Link to Company Facebook Page
+			facebook =
+			# cat=plugin.tx_otwebsite/others; type=string; label=Twitter:Link to Company Twitter Page
+			twitter =
+			# cat=plugin.tx_otwebsite/others; type=string; label=Email Adress:Company Email adress
+			email =
+		}
 	}
 }
 
@@ -14,6 +23,9 @@ plugin.tx_otwebsite {
 // Oben ist für den Konstanteneditor, unten die gespeicherten Änderungen
 
 plugin.tx_otwebsite.settings.companyName = Soeren Kroell
+plugin.tx_otwebsite.settings.socialLinks.facebook = http://www.facebook.com
+plugin.tx_otwebsite.settings.socialLinks.twitter = http://www.twitter.com
+plugin.tx_otwebsite.settings.socialLinks.email = hallo@soerenkroell.com
 
 styles.content.imgtext.maxWInText = 0
 styles.content.imgtext.linkWrap.width = 800
