@@ -14,7 +14,8 @@ body {
 footer {
 	padding: 30px 0;
 }
-a{
+a,
+.transition-item{
 	transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-webkit-transition: all 0.2s ease-in;

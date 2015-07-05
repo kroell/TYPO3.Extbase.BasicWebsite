@@ -99,6 +99,34 @@ page {
 				renderObj =< aside_content
 				select.where = colPos=2
 			}
+#			content_3 < .content_0
+#			content_3 {
+#				table = tt_content
+#				select {
+#					where = colPos=3
+#					languageField = sys_language_uid
+#					orderBy = sorting
+#				}
+#			}
+#			content_4 < .content_0
+#			content_4 {
+#				table = tt_content
+#				select {
+#					where = colPos=4
+#					languageField = sys_language_uid
+#					orderBy = sorting
+#				}
+#			}
+#			content_5 < .content_0
+#			content_5 {
+#				table = tt_content
+#				select {
+#					where = colPos=5
+#					languageField = sys_language_uid
+#					orderBy = sorting
+#				}
+#			}
+
 			currentYear = TEXT
 			currentYear.data = date: Y
 		}
