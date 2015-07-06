@@ -25,8 +25,8 @@ config {
     // Cache-Einstellungen
 	sendCacheHeaders = 1
 	cache_period = 86400
-    #cache = 1
-    no_cache = 1
+    cache = 1
+    no_cache = 0
 
     // Bilder werden zuerst mit dem OrgNamen geparsed und danach mit dem Hashcode
     meaningfulTempFilePrefix = 100
@@ -34,12 +34,12 @@ config {
 	disableImgBorderAttr = 1
 
 	// JS und CSS minify
-    #concatenateJs = 1
-    #concatenateCss = 1
-    #compressJs = 1
-    #compressCss = 1
-    #minifyJS = 1
-    #minifyCSS = 1
+    concatenateJs = 1
+    concatenateCss = 1
+    compressJs = 1
+    compressCss = 1
+    minifyJS = 1
+    minifyCSS = 1
 
     xhtml_cleaning = all
 
@@ -90,10 +90,3 @@ config {
 
 
 
-# localize date format, used within the fluid templates
-# ------------------------------------------------------------------------------
-lib.ll_date = TEXT
-lib.ll_date {
-    current = 1
-    strftime = %d. %b %Y
-}

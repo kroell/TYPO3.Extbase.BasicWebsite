@@ -136,5 +136,13 @@ lib {
         # (eg. in the top and in the left area), you should set this value!
         # 10.loadFlexformsFromOtherCE = 123456
     }
+
+    # localize date format, used within the fluid templates
+    # ------------------------------------------------------------------------------
+    ll_date = TEXT
+    ll_date {
+        current = 1
+        strftime = %d. %b %Y
+    }
 }
 
