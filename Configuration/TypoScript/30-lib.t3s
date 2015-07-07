@@ -40,6 +40,9 @@ lib {
 				NO {
 					wrapItemAndSub = <li>|</li>
 					stdWrap.htmlSpecialChars = 1
+                    ATagParams = id="menu-link-{field:uid}"
+                    ATagParams.insertData = 1
+                    ATagTitle.field = subtitle // title
 				}
 				CUR < .NO
 				CUR {
