@@ -3,10 +3,10 @@ page {
 	includeCSS {
 		file01 = Packages/Libraries/twbs/bootstrap/dist/css/bootstrap.min.css
 		file02 = typo3conf/ext/ot_website/Resources/Public/Vendor/Fancybox/jquery.fancybox.css
-		file03 = Packages/Libraries/soerenkroell/composer-slick/slick/slick.css
-		file03 = Packages/Libraries/soerenkroell/composer-slick/slick/slick-theme.css
-		file04 = Packages/Libraries/fortawesome/font-awesome/css/font-awesome.min.css
-		file05 = typo3conf/ext/ot_website/Resources/Public/Css/Animations.min.css
+		file03 = Packages/Libraries/soerenkroell/composer-slick/slick/slick.scss
+		file04 = Packages/Libraries/soerenkroell/composer-slick/slick/slick-theme.scss
+		file05 = Packages/Libraries/fortawesome/font-awesome/css/font-awesome.min.css
+		file06 = typo3conf/ext/ot_website/Resources/Public/Css/Animations.min.css
 
 		file99 = typo3conf/ext/ot_website/Resources/Public/Css/Styles.css
 	}
@@ -19,6 +19,7 @@ page {
 		file01 = Packages/Libraries/twbs/bootstrap/dist/js/bootstrap.min.js
 		file02 = typo3conf/ext/ot_website/Resources/Public/Vendor/Fancybox/jquery.fancybox.pack.js
 		file03 = Packages/Libraries/soerenkroell/composer-slick/slick/slick.min.js
+        file04 = typo3conf/ext/ot_website/Resources/Public/Vendor/Inview/jquery.inview.min.js
 	}
 	includeJSFooter {
 		file01 = typo3conf/ext/ot_website/Resources/Public/Js/Script.js

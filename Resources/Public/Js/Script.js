@@ -6,8 +6,6 @@ $(document).ready(function () {
 	$(".fancybox").fancybox();
 
 
-
-
     /**
      * =======================================
      * Function: Detect Mobile Device
@@ -43,8 +41,6 @@ $(document).ready(function () {
     if ( $( 'body' ).hasClass( 'enable-animations' ) && ! isMobile.any() ) {
         var $elements = $( '*[data-animation]' );
 
-        console.log($elements);
-
         $elements.each( function( i, el ) {
 
             var $el = $( el ),
@@ -55,7 +51,6 @@ $(document).ready(function () {
             $el.addClass( 'wait-animation' );
 
             $el.one( 'inview', function() {
-
                 $el.removeClass( 'wait-animation' );
                 $el.addClass( 'done-animation' );
             });
