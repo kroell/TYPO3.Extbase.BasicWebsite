@@ -1,0 +1,65 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:layout name="Backend"/>
+
+
+	Show Backend Module: Powermail Reporting Form
+
+<f:section name="content">
+
+	<h1><f:translate key="BackendReportingFormTitle" /></h1>
+
+	<f:flashMessages class="powermail_message" />
+
+	<div class="powermail_reporting_form">
+		<div class="powermail_module_search">
+			<div class="powermail_module_search_inner">
+				<f:render partial="Module/Search" arguments="{piVars: piVars, mails: mails, firstMail: firstMail, action : 'reportingFormBe'}" />
+			</div>
+		</div>
+
+		<f:if condition="{mails}">
+			<f:then>
+				<h3><f:translate key="BackendReportingFormSubtitle1" /> <f:count subject="{mails}" /> <f:translate key="Emails" />:</h3>
+
+				<div class="powermail_reporting_form_fields">
+					<div class="powermail_reporting_form_fields_inner">
+
+						<f:for each="{firstMail.answers}" as="answer">
+
+							<div class="powermail_reporting_form_fields_item">
+								<h4>{answer.field.title}</h4>
+
+								<div class="flotContainer"
+									 data-flot-active="1"
+									 data-flot-data-colors="#FF9900, #FFA722, #FFB444, #FFC266, #FFD088, #FFDDAA, #FFEBCC"
+									 data-flot-data-values="{vh:Reporting.GetValuesGoogleCharts(answers:groupedAnswers, fieldUidOrKey:answer.field.uid, separator: ',', urlEncode:0)}"
+									 data-flot-data-labels="{vh:Reporting.GetLabelsGoogleCharts(answers:groupedAnswers, fieldUidOrKey:answer.field.uid, separator:',', urlEncode:0)}"></div>
+
+								<div class="powermail_reporting_form_fields_table_absolute">
+									<table class="powermail_reporting_form_fields_table">
+										<tr>
+											<th style="width: 90%; text-align: center;" class="powermail-close"><f:translate key="BackendReportingFormValue" /></th>
+											<th style="width: 10%;" class="powermail_reporting_form_fields_table_right"><f:translate key="BackendReportingFormAmount" /></th>
+										</tr>
+										<f:for each="{vh:Misc.VariableInVariable(obj:'{groupedAnswers}', prop: '{answer.field.uid}')}" as="amount" key="value">
+											<tr>
+												<td>{value}</td>
+												<td class="powermail_reporting_form_fields_table_right">{amount}</td>
+											</tr>
+										</f:for>
+									</table>
+								</div>
+							</div>
+
+						</f:for>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</f:then>
+			<f:else>
+				<h3><f:translate key="BackendListNoMails" /></h3>
+				<p><f:translate key="BackendListNoMailsSub" /></p>
+			</f:else>
+		</f:if>
+	</div>
+</f:section>

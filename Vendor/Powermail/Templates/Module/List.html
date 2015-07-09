@@ -1,0 +1,45 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:layout name="Backend" />
+
+
+	Show Backend Module: Powermail List
+
+<f:section name="content">
+
+	<h1><f:translate key="BackendListTitle" /></h1>
+
+	<f:flashMessages class="powermail_message" />
+
+	<f:comment>
+		Filter Area
+	</f:comment>
+	<f:render partial="Module/Filter" arguments="{_all}" />
+
+
+
+	<f:if condition="{mails}">
+		<f:then>
+			<f:widget.paginate
+					objects="{mails}"
+					as="mailsPage"
+					configuration="{itemsPerPage: '{perPage}',
+						insertAbove: '{f:if(condition:\'{mails -> f:count()} > {perPage}\',then:1,else:0)}',
+						insertBelow: '{f:if(condition:\'{mails -> f:count()} > {perPage}\',then:1,else:0)}'}">
+
+				<f:if condition="{vh:Condition.IsCompatVersion(versionNumber:'7.0')}">
+					<f:then>
+						<f:render partial="Module/List" arguments="{_all}" />
+					</f:then>
+					<f:else>
+						<f:render partial="Module/ListOld" arguments="{_all}" />
+					</f:else>
+				</f:if>
+			</f:widget.paginate>
+		</f:then>
+		<f:else>
+			<h3><f:translate key="BackendListNoMails" /></h3>
+			<p><f:translate key="BackendListNoMailsSub" /></p>
+		</f:else>
+	</f:if>
+
+</f:section>

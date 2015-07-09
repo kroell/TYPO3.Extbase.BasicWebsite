@@ -1,0 +1,99 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:layout name="Export" />
+
+	Render Powermail XLS Export
+	{mails}					All Mails for exporting
+	{fieldUids}				Fields to export (drag'n drop settings in module)
+
+<f:section name="main"><html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<table>
+			<f:for each="{mails}" as="mail" iteration="index">
+				<f:if condition="{index.isFirst}">
+					<tr>
+						<f:for each="{fieldUids}" as="fieldUid">
+							<th>
+								<f:if condition="{vh:Condition.IsNumber(val: '{fieldUid}')}">
+									<f:then>
+										<vh:Getter.GetFieldLabelFromUid uid="{fieldUid}" />
+									</f:then>
+									<f:else>
+										<f:translate key="\In2code\Powermail\Domain\Model\Mail.{vh:String.UnderscoredToLowerCamelCase(val: '{fieldUid}')}" />
+									</f:else>
+								</f:if>
+							</th>
+						</f:for>
+					</tr>
+				</f:if>
+
+				<tr>
+					<f:for each="{fieldUids}" as="fieldUid">
+						<td>
+							<f:if condition="{vh:Condition.IsNumber(val:fieldUid)}">
+								<f:then>
+									<f:for each="{mail.answers}" as="answer">
+										<f:if condition="{fieldUid} == {answer.field.uid}">
+											<f:if condition="{vh:Condition.IsArray(val:answer.value)}">
+												<f:then>
+													<f:for each="{answer.value}" as="singleValue" iteration="arrayIndex">
+														<f:if condition="{singleValue}">
+															{singleValue}<f:if condition="{arrayIndex.isLast}"><f:else>,</f:else></f:if>
+														</f:if>
+													</f:for>
+												</f:then>
+												<f:else>
+													{answer.value}
+												</f:else>
+											</f:if>
+										</f:if>
+									</f:for>
+								</f:then>
+								<f:else>
+									<f:if condition="{vh:Condition.IsDateTimeVariableInVariable(obj:mail, prop:fieldUid)}">
+										<f:then>
+											<f:if condition="{0 : fieldUid} == {0 : 'crdate'}">
+												<f:then>
+													<f:format.date format="d.m.Y H:i:s"><vh:Misc.VariableInVariable obj="{mail}" prop="{fieldUid}" /></f:format.date>
+													<f:translate key="Clock" />
+												</f:then>
+												<f:else>
+													<f:if condition="{0 : fieldUid} == {0 : 'time'}">
+														<f:then>
+															<f:format.date format="%M:%S"><vh:Misc.VariableInVariable obj="{mail}" prop="{fieldUid}" /></f:format.date>
+														</f:then>
+														<f:else>
+															<f:format.date format="H:i:s"><vh:Misc.VariableInVariable obj="{mail}" prop="{fieldUid}" /></f:format.date>
+														</f:else>
+													</f:if>
+												</f:else>
+											</f:if>
+										</f:then>
+										<f:else>
+											<f:if condition="{0 : fieldUid} == {0 : 'marketing_page_funnel'}">
+												<f:then>
+													<f:if condition="{vh:Condition.IsArray(val: '{vh:Misc.VariableInVariable(obj: \'{mail}\', prop: \'{fieldUid}\')}')}">
+														<f:for each="{vh:Misc.VariableInVariable(obj: '{mail}', prop: '{fieldUid}')}" as="pid" iteration="pageIndex">
+															<vh:Getter.GetPageNameFromUid uid="{pid}" /><f:if condition="{pageIndex.isLast}"><f:else> &gt; </f:else></f:if>
+														</f:for>
+													</f:if>
+												</f:then>
+												<f:else>
+													<vh:Misc.VariableInVariable obj="{mail}" prop="{fieldUid}" />
+												</f:else>
+											</f:if>
+										</f:else>
+									</f:if>
+								</f:else>
+							</f:if>
+						</td>
+					</f:for>
+				</tr>
+			</f:for>
+		</table>
+	</body>
+</html>
+
+</f:section>
