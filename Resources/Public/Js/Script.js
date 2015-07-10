@@ -1,14 +1,13 @@
 $(document).ready(function () {
-	$('[data-toggle=offcanvas]').click(function () {
-		$('.row-offcanvas').toggleClass('active')
-	});
+	//$('[data-toggle=offcanvas]').click(function () {
+	//	$('.row-offcanvas').toggleClass('active')
+	//});
 
 	$(".fancybox").fancybox();
 
-
     /**
      * =======================================
-     * Function: Detect Mobile Device
+     * Detect Mobile Device
      * =======================================
      */
     // source: http://www.abeautifulsite.net/detecting-mobile-devices-with-javascript/
@@ -40,21 +39,31 @@ $(document).ready(function () {
      */
     if ( $( 'body' ).hasClass( 'enable-animations' ) && ! isMobile.any() ) {
         var $elements = $( '*[data-animation]' );
-
-        $elements.each( function( i, el ) {
-
-            var $el = $( el ),
-                animationClass = $el.data( 'animation' );
-
-            $el.addClass( animationClass );
-            $el.addClass( 'animated' );
-            $el.addClass( 'wait-animation' );
-
-            $el.one( 'inview', function() {
-                $el.removeClass( 'wait-animation' );
-                $el.addClass( 'done-animation' );
-            });
-        });
+        animateIt($elements);
     };
 
 });
+
+/**
+ * =======================================
+ * Function: Animate all elements
+ *
+ * @param $elements
+ * =======================================
+ */
+function animateIt($elements) {
+    $elements.each( function( i, el ) {
+
+        var $el = $( el ),
+            animationClass = $el.data( 'animation' );
+
+        $el.addClass( animationClass );
+        $el.addClass( 'animated' );
+        $el.addClass( 'wait-animation' );
+
+        $el.one( 'inview', function() {
+            $el.removeClass( 'wait-animation' );
+            $el.addClass( 'done-animation' );
+        });
+    });
+}
