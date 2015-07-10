@@ -1,8 +1,6 @@
 $(document).ready(function () {
-	//$('[data-toggle=offcanvas]').click(function () {
-	//	$('.row-offcanvas').toggleClass('active')
-	//});
 
+    // activate fancybox
 	$(".fancybox").fancybox();
 
     /**
@@ -10,27 +8,7 @@ $(document).ready(function () {
      * Detect Mobile Device
      * =======================================
      */
-    // source: http://www.abeautifulsite.net/detecting-mobile-devices-with-javascript/
-    var isMobile = {
-        Android: function() {
-            return navigator.userAgent.match( /Android/i );
-        },
-        BlackBerry: function() {
-            return navigator.userAgent.match( /BlackBerry/i );
-        },
-        iOS: function() {
-            return navigator.userAgent.match( /iPhone|iPad|iPod/i );
-        },
-        Opera: function() {
-            return navigator.userAgent.match( /Opera Mini/i );
-        },
-        Windows: function() {
-            return navigator.userAgent.match( /IEMobile/i );
-        },
-        any: function() {
-            return ( isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() );
-        }
-    };
+    var isMobile = checkMobile();
 
     /**
      * =======================================
@@ -66,4 +44,40 @@ function animateIt($elements) {
             $el.addClass( 'done-animation' );
         });
     });
+}
+
+/**
+ * =======================================
+ * Function: Checks if userAgent is a mobile Device or window width is lower than 800
+ *
+ * source: http://www.abeautifulsite.net/detecting-mobile-devices-with-javascript/
+ * @returns {{Android: Function, BlackBerry: Function, iOS: Function, Opera: Function, Windows: Function, width: Function, any: Function}}
+ * =======================================
+ */
+function checkMobile() {
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match( /Android/i );
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match( /BlackBerry/i );
+        },
+        iOS: function() {
+            return navigator.userAgent.match( /iPhone|iPad|iPod/i );
+        },
+        Opera: function() {
+            return navigator.userAgent.match( /Opera Mini/i );
+        },
+        Windows: function() {
+            return navigator.userAgent.match( /IEMobile/i );
+        },
+        width: function() {
+            return $(window).width() <= 800;
+        },
+        any: function() {
+            return ( isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() || isMobile.width() );
+        }
+    };
+
+    return isMobile;
 }
