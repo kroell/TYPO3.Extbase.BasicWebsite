@@ -6,14 +6,32 @@
         <vh:string.RawAndRemoveXss>{field.title}</vh:string.RawAndRemoveXss><f:if condition="{field.mandatory}"><span class="mandatory">*</span></f:if>
     </label>
 
-    <f:form.textarea
-            cols="20"
-            rows="5"
-            id="powermail_field_{field.marker}"
-            property="{field.marker}"
-            value="{vh:Misc.PrefillField(field:field, mail:mail)}"
-            additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
-            placeholder="<vh:string.RawAndRemoveXss>{field.title}</vh:string.RawAndRemoveXss>"
-            class="powermail_field powermail_textarea {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')} form-control no-radius" />
+    <f:if condition="{field.mandatory}">
+        <f:then>
+            
+            <f:form.textarea
+                    cols="20"
+                    rows="5"
+                    id="powermail_field_{field.marker}"
+                    property="{field.marker}"
+                    value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+                    additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+                    placeholder="<vh:string.RawAndRemoveXss>{field.title}</vh:string.RawAndRemoveXss>*"
+                    class="powermail_field powermail_textarea {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')} form-control no-radius" />
+        </f:then>
+        <f:else>
+            <f:form.textarea
+                    cols="20"
+                    rows="5"
+                    id="powermail_field_{field.marker}"
+                    property="{field.marker}"
+                    value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+                    additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+                    placeholder="<vh:string.RawAndRemoveXss>{field.title}</vh:string.RawAndRemoveXss>"
+                    class="powermail_field powermail_textarea {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')} form-control no-radius" />
+        </f:else>
+    </f:if>
+
+
 </div>
 <div class="clearfix"></div>
