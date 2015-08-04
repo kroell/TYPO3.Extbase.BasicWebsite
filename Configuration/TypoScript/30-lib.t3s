@@ -147,5 +147,16 @@ lib {
         current = 1
         strftime = %d. %b %Y
     }
+
+	# Allow iFrame in RTE
+	parseFunc_RTE.allowTags := addToList(object,param,embed,iframe,div)
 }
 
+# Allow iFrame in RTE
+styles.content.links {
+	allowTags  (
+         b,i,u,a,img,br,div,center,pre,font,hr,sub,sup,p,strong,
+         em,li,ul,ol,blockquote,strike,del,ins,span,h1,h2,h3,h4,
+         h5,h6,address,iframe
+	)
+}

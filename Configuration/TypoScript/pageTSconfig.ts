@@ -49,3 +49,10 @@ TCEFORM.tt_content {
 	spaceAfter.disabled = 1
 	section_frame.disabled = 1
 }
+
+# Allow Object, Param, Embed, iFrame in RTE
+RTE.default.proc {
+	allowTags := addToList(object,param,embed,iframe)
+	allowTagsOutside := addToList(object,embed,iframe)
+	entryHTMLparser_db.allowTags < .allowTags
+}
